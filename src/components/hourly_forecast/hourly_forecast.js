@@ -75,7 +75,7 @@ const HourlyForecast = (data) => {
             {/* <span>
                 {dataHourly}
             </span> */}
-            {/* <h1>Chart js and react introduction | chartjs3</h1> */}
+            <p>Hourly Temperature</p>
             <div className='chart_container'>
                 <Line
                     data = {dataChart}

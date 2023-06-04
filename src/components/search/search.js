@@ -32,7 +32,7 @@ const Search = ({onSearchChange}) => {
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
-            borderRadius: '30px',
+            borderRadius: '15px',
             boxShadow: '1px 1px 3px rgba(0, 0, 0, 0.1)',
             cursor: 'auto'
             // border: '2px solid #ccc',

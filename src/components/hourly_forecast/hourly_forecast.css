@@ -1,4 +1,16 @@
 .chart_container{
-    width: 600px;
+    width: 85%;
     height: 300px;
+    margin: auto;
+}
+
+.hourly_forecast{
+    width: 70%;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 10px - 2px 20px 2px rgb(0 0 0 / 30%);
+    color: #139eb9;
+    background-color: #e5faff;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px 20px 20px;
 }

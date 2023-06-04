@@ -1,22 +1,34 @@
 import { Accordion, AccordionItemHeading, AccordionItemButton, AccordionItem, AccordionItemPanel } from "react-accessible-accordion";
 import './forecast.css'
-
+import { useState } from "react";
+import SearchDayForecast from "../select_day_forecast/select_day_forecast";
 
 const WEEK_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun"];
 
 
-const Forecast = ({ data, numberDay }) => {
+const Forecast = ({ data }) => {
     const dayInWeek = new Date().getDay();
     const forecastDays = WEEK_DAYS.slice(dayInWeek, WEEK_DAYS.length).concat(
         WEEK_DAYS.slice(0, dayInWeek)
     );
 
-    const numberDayDisplay = numberDay ? numberDay : 7
+    const [dataDayForecast, setDataDayForecast] = useState(null) 
+
+    const numberDayDisplay = dataDayForecast ? dataDayForecast : 7
+
+    const handleOnChangeDayForecast = (searchDataDayForecast) => {
+        setDataDayForecast(searchDataDayForecast.value)
+    }
 
     return (
         <div>
             <div className="forecast">
-                <p className="card-forecast__title">Extended Forecast</p>
+                <div className="card-title__container">
+                    <p className="card-forecast__title">Extended Forecast</p>
+                    <div className="select-container">
+                        <SearchDayForecast onSearchChangeDayForecast={handleOnChangeDayForecast}/>
+                    </div>
+                </div>
                 <div className="detail-forecast__container">
                     {data.list.slice(0, numberDayDisplay).map((item, idx) => (
                         <div className="daily-item">

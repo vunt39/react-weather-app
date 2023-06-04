@@ -1,5 +1,6 @@
 import Select from "react-select";
 import { useState } from "react";
+import './select_day_forecast.css'
 
 const SearchDayForecast = ({onSearchChangeDayForecast}) => {
     const [searchDayForecast, setSearchDayForecast] = useState(null);
@@ -7,31 +8,31 @@ const SearchDayForecast = ({onSearchChangeDayForecast}) => {
     const optionsSelectDayForecast = [
         {
             value: 1,
-            label: '1 ngày'
+            label: '1 days'
         },
         {
             value: 2,
-            label: '2 ngày'
+            label: '2 days'
         },
         {
             value: 3,
-            label: '3 ngày'
+            label: '3 days'
         },
         {
             value: 4,
-            label: '4 ngày'
+            label: '4 days'
         },
         {
             value: 5,
-            label: '5 ngày'
+            label: '5 days'
         },
         {
             value: 6,
-            label: '6 ngày'
+            label: '6 days'
         },
         {
             value: 7,
-            label: '7 ngày'
+            label: '7 days'
         },
     ]
 
@@ -46,6 +47,8 @@ const SearchDayForecast = ({onSearchChangeDayForecast}) => {
             onChange={handleOnChangeDayForecast}
             defaultValue={optionsSelectDayForecast[6]}
             options={optionsSelectDayForecast}
+            className="select-component"
+            classNamePrefix="react-select"
         />
     )
 }

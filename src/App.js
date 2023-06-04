@@ -1,6 +1,5 @@
 import './App.css';
 import Search from './components/search/search'
-import SearchDayForecast from './components/select_day_forecast/select_day_forecast';
 import CurrentWeather from './components/curren-weather/current-weather';
 import Forecast from './components/forecast/forecast';
 import HourlyForecast from './components/hourly_forecast/hourly_forecast';
@@ -12,7 +11,6 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
   const [hourlyForecast, setForecastHourly] = useState(null)
-  const [dataDayForecast, setDataDayForecast] = useState(null)  
   
   useEffect(() => {
     
@@ -63,18 +61,13 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  const handleOnChangeDayForecast = (searchDataDayForecast) => {
-    setDataDayForecast(searchDataDayForecast.value)
-  }
-
   return (
     <div className="container">
       <h1 className='weather_app-title'>React Weather</h1>
       <Search onSearchChange={handleOnSearchChange}/>
-      <SearchDayForecast onSearchChangeDayForecast={handleOnChangeDayForecast}/>
       {currentWeather &&  <CurrentWeather data={currentWeather} />}
       {hourlyForecast && <HourlyForecast data={hourlyForecast}/>}
-      {forecast && <Forecast data={forecast} numberDay={dataDayForecast}/>}
+      {forecast && <Forecast data={forecast} />}
     </div>
   );
 }
