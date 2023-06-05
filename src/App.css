@@ -6,3 +6,55 @@
 .weather_app-title{
   color: #139eb9;
 }
+
+.button-city__container{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.button{
+  height: 40px;
+  background-color: #139eb9;
+  color: white;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: #0d768b;
+}
+
+.list-city-follow{
+  background-color: #74d3e6;
+  padding-top: 1px;
+  padding-bottom: 21px;
+  border-radius: 30px;
+  margin-top: 20px;
+  min-width: 600px;
+  position: relative;
+}
+
+.list-city-follow .weather .card-current__title {
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+.list-city-follow .weather {
+  padding-bottom: 10px;
+}
+
+.list-city-follow .forecast {
+  padding-bottom: 10px;
+}
+
+.list-city-follow .weather .weather-description{
+  margin-bottom: 5px;
+}
+.delete-image {
+  width: 35px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}

@@ -1,9 +1,13 @@
+html{
+  
+}
 body {
   margin: 0;
   font-family: "Roboto", Arial !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #d5d4d4;
+  min-height: 1000px;
   background-image: url('../public/bg.svg'), linear-gradient(to bottom, #F9FFFF, #38C8E6);
 }
 

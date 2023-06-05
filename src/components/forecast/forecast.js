@@ -7,6 +7,7 @@ const WEEK_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun"];
 
 
 const Forecast = ({ data }) => {
+    let city = data ? data.city.name : ''
     const dayInWeek = new Date().getDay();
     const forecastDays = WEEK_DAYS.slice(dayInWeek, WEEK_DAYS.length).concat(
         WEEK_DAYS.slice(0, dayInWeek)
@@ -24,7 +25,7 @@ const Forecast = ({ data }) => {
         <div>
             <div className="forecast">
                 <div className="card-title__container">
-                    <p className="card-forecast__title">Extended Forecast</p>
+                    <p className="card-forecast__title">Extended Forecast {city}</p>
                     <div className="select-container">
                         <SearchDayForecast onSearchChangeDayForecast={handleOnChangeDayForecast}/>
                     </div>

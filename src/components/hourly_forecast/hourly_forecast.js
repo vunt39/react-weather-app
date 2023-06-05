@@ -21,6 +21,8 @@ ChartJs.register(
 
 const HourlyForecast = (data) => {
     let listHour = data.data.list
+    let city = data ? data.data.city.name : ''
+    
     let dataChart = {
         labels: [],
         datasets: [{
@@ -33,7 +35,6 @@ const HourlyForecast = (data) => {
             tension: 0.4
         }]
     }
-    console.log(data.list)
     for(let i = 0; i<7;i++){
         let time = listHour[i].dt_txt.split(" ")
         dataChart.labels.push(time[1])
@@ -75,7 +76,7 @@ const HourlyForecast = (data) => {
             {/* <span>
                 {dataHourly}
             </span> */}
-            <p>Hourly Temperature</p>
+            <p>Hourly Temperature {city}</p>
             <div className='chart_container'>
                 <Line
                     data = {dataChart}
