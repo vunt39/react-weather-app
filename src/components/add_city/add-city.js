@@ -47,7 +47,7 @@ const SearchAddCity = ({onSearchChange}) => {
 
     return (
         <AsyncPaginate
-        placeholder="Add city to follow"
+        placeholder="Search for city"
         debounceTimeout={600}
         value={search}
         onChange={handleOnChange}

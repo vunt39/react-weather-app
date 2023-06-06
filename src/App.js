@@ -86,87 +86,129 @@ function App() {
         dataAdd.forecast = { city: searchData.label, ...forecastResponse}
         dataAdd.hourlyForecast = {city: searchData.label, ...hourlyForecastResponse}
 
-        console.log('data', dataAdd)
-        console.log('listCityFollow', listCityFollow)
         let a = JSON.parse(JSON.stringify(listCityFollow))
-        a.push(dataAdd)
-        console.log('aaa', a)
+        a.unshift(dataAdd)
         setListCityFollow(a)
-        // console.log('222', listCityFollow)
 
-        // setCurrentWeather({city: searchData.label, ...weatherResponse})
-        // setForecast({ city: searchData.label, ...forecastResponse})
-        // setForecastHourly({city: searchData.label, ...hourlyForecastResponse})
       })
       .catch((err) => console.log(err));
   }
 
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      backgroundColor: "white",
-      width: 400,
-      height: 250,
-    },
-  };
+  // const customStyles = {
+  //   content: {
+  //     top: "50%",
+  //     left: "50%",
+  //     right: "auto",
+  //     bottom: "auto",
+  //     marginRight: "-50%",
+  //     transform: "translate(-50%, -50%)",
+  //     backgroundColor: "white",
+  //     borderRadius: 10,
+  //     width: 400,
+  //     height: 300,
+  //   },
+  // };
 
   var cityAdd = null
 
   const handleOnSearchAddCity = (searchData) => {
-    console.log('searchData', searchData)
     cityAdd = searchData
   }
 
   const clickOpenModal = () => {
     setModalOpen(true)
     cityAdd = null
-    console.log('click modal open', cityAdd)
   }
 
   const clickCloseModal = () => {
-    console.log('click close modal')
     if(cityAdd){
       setCityAddFollow(cityAdd)
       handleAddCityFollow(cityAdd)
     }
     setModalOpen(false)
-    console.log('add city', cityAdd)
   }
 
   const clickDelete = (idx) => {
-    let a = (listCityFollow.splice(idx, 1))
-    console.log('aaaaaaa', a)
+    let a = JSON.parse(JSON.stringify(listCityFollow))
+    a.splice(idx, 1)
     setListCityFollow(a)
-    // listCityFollow.slice(idx, 1)
   }
+
+  var draggedItem = null
+  var itemsSetArray = null
+
+  const onDragStart = (e, index) => {
+    draggedItem = listCityFollow[index]
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/html", e.target.parentNode);
+    // e.dataTransfer.setDragImage(e.target.parentNode, 0, 0);
+  }
+
+  const  onDragOver = index => {
+    const draggedOverItem = listCityFollow[index];
+
+    if (draggedItem === draggedOverItem) {
+      return;
+    }
+
+    let items = listCityFollow.filter(item => item !== draggedItem);
+
+
+
+    if(draggedItem !== null){
+      items.splice(index, 0, draggedItem);
+      itemsSetArray = items
+    }
+  };
+
+  const onDragEnd = index => {
+    if(itemsSetArray !== null){
+      setListCityFollow(itemsSetArray)
+    }
+
+    itemsSetArray = null
+    draggedItem = null
+  };
 
   return (
     <div className="container">
       <h1 className='weather_app-title'>React Weather</h1>
-      <Search onSearchChange={handleOnSearchChange}/>
-      <button className='button' onClick={clickOpenModal}>Open Modal</button>
+      <div className='header-app__container'>
+        <div className='search-app__container'>
+          <Search onSearchChange={handleOnSearchChange}/>
+        </div>
+        <button className='button' onClick={clickOpenModal}>Follow city</button>
+      </div>
       <Modal
         isOpen={modalOpen}
+        className={'modal-add-city'}
         onRequestClose={() => setModalOpen(false)}
-        style={customStyles}
+        // style={customStyles}
       >
-        <SearchAddCity onSearchChange={handleOnSearchAddCity} />
-        <div className='button-city__container'>
-          <button className='button button-city' onClick={clickCloseModal}>Close Modal (add city)</button>
+        <div className='content-modal__container'>
+          <div className='modal-title'>
+            <h3>CHOOSE A CITY TO FOLLOW</h3>
+          </div>
+          <SearchAddCity onSearchChange={handleOnSearchAddCity} />
+          <div className='description__container'>
+            <p>
+              If choose this city. The information of it will be displayed in the dashboard and you will can delete it anytime you want
+            </p>
+          </div>
+          <div className='button-city__container'>
+            <button className='button button-city' onClick={clickCloseModal}>Add this city</button>
+          </div>
         </div>
       </Modal>
       <div>
-        {listCityFollow.slice(0).reverse().map((item, idx) => (
-          <div className='list-city-follow'>
-            <img className='delete-image' onClick={() => clickDelete(idx)} src='delete.png' alt=""></img>
-            {item.currentWeather &&  <CurrentWeather data={item.currentWeather} />}
-            {/* {item.hourlyForecast && <HourlyForecast data={item.hourlyForecast}/>} */}
-            {item.forecast && <Forecast data={item.forecast} />}
+        {listCityFollow.map((item, idx) => (
+          <div key={idx} onDragOver={() => onDragOver(idx)}>
+            <div className='list-city-follow' draggable onDragStart={e => onDragStart(e, idx)} onDragEnd={() => onDragEnd(idx)}>
+              <img className='delete-image' onClick={() => clickDelete(idx)} src='delete.png' alt=""></img>
+              {item.currentWeather &&  <CurrentWeather data={item.currentWeather} />}
+              {/* {item.hourlyForecast && <HourlyForecast data={item.hourlyForecast}/>} */}
+              {item.forecast && <Forecast data={item.forecast} />}
+            </div>
           </div>
         ))}
       </div>

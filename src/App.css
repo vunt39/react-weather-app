@@ -19,6 +19,7 @@
   font-size: 14px;
   border: none;
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .button:hover{
@@ -57,4 +58,57 @@
   right: 20px;
   top: 10px;
   cursor: pointer;
+}
+
+.header-app__container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-app__container{
+  min-width: 300px;
+}
+
+.modal-title{
+    text-align: center;
+    border-bottom: 1px solid #888282;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.button-city{
+  width: 80%;
+}
+
+.modal-add-city{
+  inset: 50% auto auto 50%;
+  border-radius: 10px;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  outline: none;
+  padding: 20px;
+  transition: all .3s linear 0.3s;
+  box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.content-modal__container{
+  position: relative;
+}
+
+.description__container{
+  position: absolute;
+  margin-top: 20px;
+}
+
+.description__container p{
+  text-align: center;
+  font-size: 13px;
+  color: #978f8f;
 }
