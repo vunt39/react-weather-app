@@ -94,21 +94,6 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  // const customStyles = {
-  //   content: {
-  //     top: "50%",
-  //     left: "50%",
-  //     right: "auto",
-  //     bottom: "auto",
-  //     marginRight: "-50%",
-  //     transform: "translate(-50%, -50%)",
-  //     backgroundColor: "white",
-  //     borderRadius: 10,
-  //     width: 400,
-  //     height: 300,
-  //   },
-  // };
-
   var cityAdd = null
 
   const handleOnSearchAddCity = (searchData) => {

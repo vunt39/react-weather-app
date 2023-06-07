@@ -42,20 +42,6 @@ const HourlyForecast = (data) => {
     }
     let minValue = Math.min(...dataChart.datasets[0].data)
     let maxValue = Math.max(...dataChart.datasets[0].data)
-    // const dataChart = {
-    //     labels: ['Mon', 'Tue', 'wed'],
-    //     datasets: [
-    //         {
-    //             label: 'Temperature',
-    //             data: [6,3,9],
-    //             backgroundColor: 'aqua',
-    //             borderColor: 'black',
-    //             pointBorderColor: 'aqua',
-    //             fill: true,
-    //             tension: 0.4,
-    //         }
-    //     ]
-    // }
 
     const options = {
         plugins: {
