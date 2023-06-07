@@ -53,6 +53,7 @@
 
 .weather-icon {
     width: 100px;
+    object-fit: contain;
     margin-right: 20px;
 }
 
@@ -106,3 +107,33 @@
 .parameter-label.top {
     border-bottom: 1px solid #fff;
 }
+
+@media only screen and (max-width: 600px) {
+    .weather-icon{
+        width: 70px;
+    }
+    .temperature{
+        font-size: 40px;
+    }
+    .weather{
+        width: 90%;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .weather-icon{
+        width: 50px;
+    }
+    .temperature{
+        font-size: 30px;
+    }
+    .detail-label__container{
+        width: 66px;
+    }
+    .weather{
+        padding: 10px 10px 10px 10px;
+    }
+    .card-current__title{
+        margin-left: 0px;
+    }
+  }

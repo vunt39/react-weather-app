@@ -34,14 +34,16 @@
     cursor: pointer;
     font-size: 14px;
     padding: 5px 5px;
-    width: 12%;
+    width: 11%;
+    min-width: 60px;
 }
 
 
 .detail-forecast__container{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .icon-small {
@@ -90,4 +92,10 @@
 
 .daily-details-grid-item label:last-child {
     color: #212121;
+}
+
+@media only screen and (max-width: 600px) {
+    .forecast{
+        width: 90%;
+    }
 }

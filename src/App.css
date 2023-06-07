@@ -1,6 +1,8 @@
 .container{
   max-width: 1080px;
   margin: 20px auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .weather_app-title{
@@ -67,7 +69,7 @@
 }
 
 .search-app__container{
-  min-width: 300px;
+  width: 300px;
 }
 
 .modal-title{
@@ -111,4 +113,10 @@
   text-align: center;
   font-size: 13px;
   color: #978f8f;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-app__container{
+    width: 54%;
+  }
 }
