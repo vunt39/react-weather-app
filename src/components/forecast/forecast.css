@@ -6,6 +6,7 @@
     background-color: #b8effb;
     margin: 20px auto 0 auto;
     padding: 10px 20px 20px 20px;
+    min-width: 250px;
 }
 
 .title {
@@ -96,6 +97,12 @@
 
 @media only screen and (max-width: 600px) {
     .forecast{
-        width: 90%;
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .forecast{
+        width: 80%;
     }
 }

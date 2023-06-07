@@ -13,6 +13,7 @@
     background-color: #e5faff;
     margin: 20px auto 0 auto;
     padding: 10px 20px 20px 20px;
+    min-width: 250px;
 }
 
 /* @media only screen and (max-width: 1050px) {
@@ -21,9 +22,18 @@
     }
 } */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (min-width: 401px){
     .hourly_forecast{
-        width: 90%;
+        width: 85%;
+    }
+    .chart_container{
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .hourly_forecast{
+        width: 80%;
     }
     .chart_container{
         height: auto;

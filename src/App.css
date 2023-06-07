@@ -34,7 +34,6 @@
   padding-bottom: 21px;
   border-radius: 30px;
   margin-top: 20px;
-  min-width: 600px;
   position: relative;
 }
 
@@ -115,8 +114,31 @@
   color: #978f8f;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (min-width: 401px){
   .search-app__container{
     width: 54%;
+  }
+  .modal-add-city{
+    width: 300px;
+  }
+  .container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .modal-add-city{
+    width: 200px;
+  }
+  .search-app__container{
+    width: 54%;
+  }
+  .container{
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .modal-title{
+    height: 47px;
   }
 }

@@ -6,6 +6,7 @@
     background-color: #fff;
     margin: 20px auto 0 auto;
     padding: 10px 20px 20px 20px;
+    min-width: 250px;
 }
 
 .card-current__title{
@@ -93,7 +94,7 @@
 }
 
 .parameter-label {
-    text-align: center;
+    text-align: left;
     font-weight: 400;
     font-size: 14px;
 }
@@ -108,7 +109,7 @@
     border-bottom: 1px solid #fff;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (min-width: 401px) {
     .weather-icon{
         width: 70px;
     }
@@ -116,11 +117,14 @@
         font-size: 40px;
     }
     .weather{
-        width: 90%;
+        width: 85%;
     }
   }
 
   @media only screen and (max-width: 400px) {
+    .weather{
+        width: 80%;
+    }
     .weather-icon{
         width: 50px;
     }
@@ -131,7 +135,8 @@
         width: 66px;
     }
     .weather{
-        padding: 10px 10px 10px 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     .card-current__title{
         margin-left: 0px;
